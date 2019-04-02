@@ -33,7 +33,7 @@ public class FormController{
 	@RequestMapping(value="/{formName}")
 	 public String loginForm(@PathVariable String formName){
 		// 动态跳转页面
-		System.out.println(formName);
+		System.out.println("所有的请求都会经过这个Controller，当前请求：" + formName);
 		return formName;
 	}
 

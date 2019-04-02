@@ -65,4 +65,10 @@
         status=#{status},createdate=now(),username=#{username}
         where id=#{id};
     </update>
+
+    <insert id="save" >
+        insert into user_inf
+        (<include refid="userColumns"/> )
+        value (#{id},#{username},#{password},#{status},#{date},#{loginname})
+    </insert>
 </mapper>

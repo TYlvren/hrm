@@ -43,7 +43,7 @@
 		  <tr valign="top">
 		    <td class="left_nav_bgshw" height="50">
 			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/selectUser" target="main">用户查询</a></img></p>
-			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="user/addUser?flag=1" target="main">添加用户</a></img></p>
+			  <p class="left_nav_link"><img src="${ctx}/images/left_nav_arrow.gif">&nbsp;&nbsp;<a href="${ctx}/WEB-INF/jsp/user/showAddUser.jsp?flag=1" target="main">添加用户</a></img></p>
 			</td>
 		  </tr>
 		  <tr><td height="2"></td></tr>

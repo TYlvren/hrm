@@ -52,7 +52,7 @@ public interface HrmService {
 	
 	/**
 	 * 添加用户
-	 * @param User 用户对象
+	 * @param user 用户对象
 	 * */
 	void addUser(User user);
 

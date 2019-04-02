@@ -62,6 +62,11 @@ public class UserController {
 		
 	}
 
+	/**
+	 * 处理注销用户请求
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping("logout.action")
 	public String logout(HttpSession session){
 		if(session != null){
@@ -77,7 +82,7 @@ public class UserController {
 	 * @param model model
 	 * */
 	@RequestMapping("selectUser")
- 	public ModelAndView queryUser(User user,Integer pageIndex,Model model){
+ 	public String queryUser(User user,Integer pageIndex,Model model){
 		PageModel pageModel = new PageModel();
 		if(pageIndex == null){
 			pageIndex = 1;
@@ -91,13 +96,22 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("users",users);
 
-
-		modelAndView.setViewName("forward:/user/user");
-		modelAndView.setViewName("user/user");
-
-		return modelAndView;
+		return "user/user";
 	}
-	
+
+
+	/**
+	 * 处理添加用户请求
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping("addUser")
+	public String addUser(User user){
+		hrmService.addUser(user);
+		return "user/selectUser";
+	}
+
+
 	/**
 	 * 处理删除用户请求
 	 * @param String ids 需要删除的id字符串

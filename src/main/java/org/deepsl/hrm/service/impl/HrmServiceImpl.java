@@ -118,7 +118,7 @@ public class HrmServiceImpl implements HrmService{
 	 * */
 	@Override
 	public void addUser(User user) {
- 		
+ 		userDao.save(user);
 	}
 	
 	/*****************部门服务接口实现*************************************/
