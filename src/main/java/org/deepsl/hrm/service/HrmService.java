@@ -61,6 +61,7 @@ public interface HrmService {
 	List<Dept> findDept();
 
 	List<Job> findJob();
+	void addJob(Job job);
 
 	List<Employee> findEmployee();
 

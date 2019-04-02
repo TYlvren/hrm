@@ -27,4 +27,7 @@
     <update id="update">
         update job_inf set name=#{name},remark=#{remark} where id=#{id};
     </update>
+    <insert id="save">
+         insert into job_inf (id,name,remark) value (null,#{name},#{remark});
+    </insert>
 </mapper>

@@ -142,6 +142,11 @@ public class HrmServiceImpl implements HrmService{
 		return jobDao.selectAllJob();
 	}
 
+	@Override
+	public void addJob(Job job) {
+		jobDao.save(job);
+	}
+
 	/*****************公告接口实现*************************************/
 	@Override
 	public List<Notice> findNotice() {
