@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.EmployeeDao">
+
+    <sql id="employeeColumns">
+        id,dept_id deptId,job_id jobId,name ,card_id cardId,address,post_code postCode,
+        tel,phone,qq_num qqNum,email,sex,party,create_date createDate
+    </sql>
+
+    <insert id="save">
+        insert into employee_inf e(<include refid="employeeColumns"/>) value
+        (#{id},#{dept.id},#{job.id},#{name},#{cardId},#{address},#{postCode},#{tel},#{phone},
+        #{qqNum},#{email},#{sex},#{party},#{createDate})
+    </insert>
+
+    <resultMap id="employeeMap" type="employee">
+        <id property="id" column="id"/>
+        <result column="name" property="name"/>
+        <result column="cardId" property="cardId"/>
+        <result column="address" property="address"/>
+        <result column="postCode" property="postCode"/>
+        <result column="tel" property="tel"/>
+        <result column="phone" property="phone"/>
+        <result column="qqNum" property="qqNum"/>
+        <result column="email" property="email"/>
+        <result column="sex" property="sex"/>
+        <result column="party" property="party"/>
+        <result column="createDate" property="createDate"/>
+
+        <association property="dept" column="deptId" javaType="dept">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="remark" column="remark"/>
+        </association>
+        <association property="job" column="jobId" javaType="job">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="remark" column="remark"/>
+        </association>
+    </resultMap>
+    <select id="selectAllEmployee" resultMap="employeeMap">
+        select
+        e.id,dept_id deptId,job_id jobId,e.name ,card_id cardId,address,post_code postCode,
+        tel,phone,qq_num qqNum,email,sex,party,create_date createDate,
+        d.id,d.name,d.remark,
+        j.id,j.name,j.remark
+        from employee_inf e,dept_inf d,job_inf j
+        where dept_id=d.id and job_id=j.id;
+    </select>
+
+</mapper>

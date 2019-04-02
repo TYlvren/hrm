@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.JobDao">
+
+    <sql id="jobColumns">
+        id,name,remark
+    </sql>
+
+    <select id="selectById" resultType="job">
+        select
+        <include refid="jobColumns"/>
+        from job_inf where id=#{id};
+    </select>
+
+    <select id="selectAllJob" resultType="job">
+        select
+        <include refid="jobColumns"/>
+        from job_inf;
+    </select>
+
+    <delete id="deleteById" >
+        delete from job_inf where id=#{id};
+    </delete>
+
+    <update id="update">
+        update job_inf set name=#{name},remark=#{remark} where id=#{id};
+    </update>
+</mapper>

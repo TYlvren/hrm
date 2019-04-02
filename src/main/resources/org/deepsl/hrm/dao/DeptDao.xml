@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.deepsl.hrm.dao.DeptDao">
+
+    <sql id="deptColumns">
+        id,name,remark
+    </sql>
+
+    <select id="selectAllDept" resultType="dept">
+      select
+      <include refid="deptColumns"/>
+      from dept_inf;
+    </select>
+
+    <select id="selectById" resultType="dept">
+        select
+        <include refid="deptColumns"/>
+        from dept_inf
+        where id=#{id};
+    </select>
+
+    <delete id="deleteById">
+        delete from dept_inf where id=#{id};
+    </delete>
+
+    <insert id="save">
+        insert into dept_inf
+        (<include refid="deptColumns"/>)
+        value (#{id},#{name},#{remark});
+    </insert>
+
+    <update id="update">
+        update dept_inf set name=#{name},remark=#{remark} where id=#{id};
+    </update>
+
+</mapper>
