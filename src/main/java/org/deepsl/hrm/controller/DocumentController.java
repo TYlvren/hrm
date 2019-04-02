@@ -30,6 +30,4 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class DocumentController {
-
- 
 }

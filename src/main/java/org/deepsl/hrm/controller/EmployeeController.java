@@ -33,6 +33,7 @@ public class EmployeeController {
     public String queryEmployee(Model model){
         List<Employee> employees = hrmService.findEmployee();
         model.addAttribute("employees",employees);
+        System.out.println("新加入的测试代码");
         return "employee/employee";
     }
 }
