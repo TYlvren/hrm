@@ -1,0 +1,5 @@
+*.class
+output/
+.idea
+.gitignore
+target/
